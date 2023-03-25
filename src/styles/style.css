@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Shantell Sans', serif;
+    color: aquamarine;
+}
+
+main {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+main form {
+    flex-basis: 30%;
+}
+
+/* Messages */
+
+ul.messList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    background-color: lightgray;
+}
+
+ul.messList li {
+    flex-basis: 100%;
+    color: black;
+    display: flex;
+}
+
+ul.messList li span {
+    flex-basis: 25%;
+}
+
+/* Navbar */
+
+.navbar-header {
+    padding: 12px 24px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.navbar-header nav {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-header nav label {
+    margin-right: 12px;
+}
+
+.navbar-header nav select {
+    font-family: 'Shantell Sans', serif;
+    font-size: 20px;
+    background-color: transparent;
+    color: aquamarine;
+    border: none;
+}
+
+ul.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+ul.navbar li {
+    margin-right: 24px;
+}
+
+ul.navbar li a {
+    text-decoration: none;
+    color: aquamarine;
+}
+
+ul.navbar li a:hover {
+    color: white;
+    background-color: aquamarine;
+}

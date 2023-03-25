@@ -1,0 +1,71 @@
+@import 'https://use.fontawesome.com/releases/v6.3.0/css/all.css';
+
+.form {
+    font-size: 20px;
+    flex-basis: 35%;
+    padding: 12px 0;
+    height: 650px;
+}
+
+.bg {
+    background-color: rgb(78, 65, 65);
+}
+
+.labels {
+    font-size: 24px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.input {
+    height: 30px;
+    font-size: 20px;
+    background-color: transparent;
+    color: aquamarine;
+}
+
+.option {
+    background-color: rgb(78, 65, 65);
+}
+
+.divs {
+    margin-bottom: 20px;
+}
+
+.flex-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.flex-div p {
+    flex-basis: 100%;
+}
+
+.flex-element {
+    flex-basis: 45%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    padding: 8px 32px;
+    border-radius: 4px;
+    font-size: 24px;
+    background-color: aquamarine;
+    color: rgb(71, 70, 70);
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    color: aquamarine;
+    background-color: rgb(71, 70, 70);
+}
