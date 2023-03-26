@@ -5,7 +5,7 @@ import { renderLabelAccommodation, renderLabelCategory, renderLabelComfort, rend
 
 import styles from './SearchForm.Module.css';
 
-export default function SearchForm({hotelsCall}) {
+export default function SearchForm({ hotelsCall }) {
     const [accommodation, setAccommodation] = useState([]);
     const [comfort, setComfort] = useState([]);
     const [category, setCategory] = useState([]);

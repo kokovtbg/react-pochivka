@@ -7,6 +7,7 @@ import MessagesInput from './components/MessagesInput';
 import Header from './components/Header';
 import Hotel from './components/hotel/Hotel';
 import Home from './components/Home';
+import Login from './components/auth/Login';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/hotels/:hotelId' element={<Hotel />} />
+                <Route path='/login' element={<Login />}/>
             </Routes>
 
 

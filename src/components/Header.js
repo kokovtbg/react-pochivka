@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const [theme, setTheme] = useState("rgb(71, 70, 70)");
@@ -15,13 +16,13 @@ export default function Header() {
         <header className="navbar-header">
             <nav>
                 <ul className="navbar">
-                    <li><a href="/home">Търсене</a></li>
-                    <li><a href="/hotel-add">Добави хотел</a></li>
-                    <li><a href="/user-profile">Профил</a></li>
-                    <li><a href="/messages-input">Съобщения</a></li>
-                    <li><a href="/login">Вход</a></li>
-                    <li><a href="/register">Регистрация</a></li>
-                    <li><a href="/logout">Изход</a></li>
+                    <li><Link to="/">Търсене</Link></li>
+                    <li><Link to="/hotel-add">Добави хотел</Link></li>
+                    <li><Link to="/user-profile">Профил</Link></li>
+                    <li><Link to="/messages-input">Съобщения</Link></li>
+                    <li><Link to="/login">Вход</Link></li>
+                    <li><Link to="/register">Регистрация</Link></li>
+                    <li><Link href="/logout">Изход</Link></li>
                 </ul>
 
                 <label htmlFor="theme">Фон</label>
