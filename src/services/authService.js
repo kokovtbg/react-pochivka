@@ -1,8 +1,7 @@
 export async function loginUser(obj) {
-    const res = await fetch(`http://localhost:8080/api/auth/signin`, {
+    const res = await fetch(`http://localhost:8080/auth/login`, {
         method: 'post',
         headers: {
-            'Accept':'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(obj)
@@ -10,6 +9,5 @@ export async function loginUser(obj) {
     if (!res.ok) {
         return "Something went wrong" + res.status;
     }
-    const data = await res.json();
-    return data;
+    return res.json();
 }

@@ -37,7 +37,7 @@ export default function Login() {
             <label htmlFor="password">Парола</label>
             <input type="password"
                 id="password"
-                name="passwod"
+                name="password"
                 value={password}
                 onChange={onPasswordChangeHandler} />
             <button>Вход</button>
