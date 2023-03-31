@@ -10,10 +10,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .list-item-image {
-    flex-basis: 25%;
+    flex-basis: 20%;
 }
 
 .list-item-image img {
@@ -24,4 +25,25 @@
 
 .list-item-image img:hover {
     transform: scale(2,2);
+}
+
+.rooms-comforts {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.rooms-comforts ul {
+    list-style: none;
+}
+
+.rooms-comforts table {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.rooms-comforts table tr {
+    flex-basis: 25%;
 }

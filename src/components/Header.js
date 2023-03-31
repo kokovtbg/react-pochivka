@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ auth }) {
     const [theme, setTheme] = useState("rgb(71, 70, 70)");
 
     useEffect(() => {
         document.body.style.backgroundColor = theme;
-    },[theme])
+    }, [theme]);
 
     function changeTheme(e) {
         setTheme(e.target.value);
@@ -17,12 +17,18 @@ export default function Header() {
             <nav>
                 <ul className="navbar">
                     <li><Link to="/">Търсене</Link></li>
-                    <li><Link to="/hotel-add">Добави хотел</Link></li>
-                    <li><Link to="/user-profile">Профил</Link></li>
-                    <li><Link to="/messages-input">Съобщения</Link></li>
-                    <li><Link to="/login">Вход</Link></li>
-                    <li><Link to="/register">Регистрация</Link></li>
-                    <li><Link href="/logout">Изход</Link></li>
+                    {auth && <>
+                        <li><Link to="/hotel-add">Добави хотел</Link></li>
+                        <li><Link to="/user-profile">Профил</Link></li>
+                        <li><Link to="/messages-input">Съобщения</Link></li>
+                        <li><Link to="/logout">Изход</Link></li></>
+                    }
+
+                    {!auth && <>
+                        <li><Link to="/login">Вход</Link></li>
+                        <li><Link to="/register">Регистрация</Link></li></>}
+
+
                 </ul>
 
                 <label htmlFor="theme">Фон</label>

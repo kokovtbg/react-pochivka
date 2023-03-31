@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { findById } from "../../services/hotelService";
-import { renderTowns, renderCategory, renderTitleAccommodation } from "../searchForm/renderFunctions";
+import { renderTowns, renderCategory, renderTitleAccommodation, renderLabelComfort } from "../renderFunctions";
 
 import style from "./Hotel.Module.css";
 
@@ -30,8 +30,27 @@ export default function Hotel() {
                 <ul className="list-images">
                     {hotel.images.map((image, i) => <Image key={i} image={image} />)}
                 </ul>
-                <p>{hotel.information}</p>
-                
+                <p style={{ marginBottom: '20px' }}>{hotel.information}</p>
+                <div className="rooms-comforts">
+                    <ul>
+                        {hotel.comforts.map(c => <li key={c.name}>{renderLabelComfort(c.name)}</li>)}
+                    </ul>
+                    <table>
+                        <tbody>
+                            {hotel.rooms.map(r =>
+                                <tr>
+                                    <td>Стая - {renderRooms(r.roomType)}</td>
+                                    <td>Сезон - {renderSeasons(r.season)}</td>
+                                    <td>Цена - {r.price !== 0 ? r.price : 'не се предлага'}</td>
+                                </tr>)}
+                        </tbody>
+                    </table>
+                    <div>
+                        <h2>{hotel.owner.telephone}</h2>
+                        <h2>{hotel.owner.email}</h2>
+                    </div>
+
+                </div>
             </div>
         )
     }
@@ -42,4 +61,34 @@ function Image({ image }) {
     return (
         <li className="list-item-image"><img src={image} alt="hotelImage" /></li>
     )
+}
+
+function renderRooms(room) {
+    switch (room) {
+        case 'SINGLE':
+            return 'единична';
+        case 'DOUBLE':
+            return 'двойна';
+        case 'TRIPLE':
+            return 'тройна';
+        case 'QUAD':
+            return 'четворна';
+        case 'APARTMENT':
+            return 'апартамент';
+    }
+}
+
+function renderSeasons(season) {
+    switch (season) {
+        case 'STRONG_SUMMER':
+            return 'силен летен';
+        case 'STRONG_WINTER':
+            return 'силен зимен';
+        case 'WEAK_SUMMER':
+            return 'слаб летен';
+        case 'WEAK_WINTER':
+            return 'слаб зимен';
+        case 'OTHER':
+            return 'друг';
+    }
 }

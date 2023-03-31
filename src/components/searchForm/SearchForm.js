@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAccommodation, getCategory, getComfort, getTown } from "../../services/enumService";
 import { searchHotels } from "../../services/hotelService";
-import { renderLabelAccommodation, renderLabelCategory, renderLabelComfort, renderTitleAccommodation, renderTowns } from "./renderFunctions";
+import { renderLabelAccommodation, renderLabelCategory, renderLabelComfort, renderTitleAccommodation, renderTowns } from "../renderFunctions";
 
 import styles from './SearchForm.Module.css';
 

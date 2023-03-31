@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/authService";
 
-export default function Login() {
+export default function Login({ onLoginHandler }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,7 +21,8 @@ export default function Login() {
         const data = new FormData(e.target);
         const obj = Object.fromEntries(data);
         loginUser(obj).then(res => {
-            console.log(res);
+            sessionStorage.setItem('token', res.token);
+            onLoginHandler(res.token);
         });
         navigate("/");
     }

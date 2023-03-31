@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { renderTitleAccommodation, renderTowns, renderCategory } from '../searchForm/renderFunctions';
+import { renderTitleAccommodation, renderTowns, renderCategory } from '../renderFunctions';
 
 import styles from './SearchHotelList.Module.css';
 
