@@ -1,0 +1,15 @@
+.message-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-send {
+    padding: 8px 32px;
+    background-color: aquamarine;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}

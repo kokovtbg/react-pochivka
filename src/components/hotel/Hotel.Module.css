@@ -3,6 +3,7 @@
 .link {
     text-decoration: none;
     color: aqua;
+    border: 1px solid aqua;
 }
 
 .list-images {

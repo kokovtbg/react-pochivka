@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Header({ auth }) {
+export default function Header({ token }) {
     const [theme, setTheme] = useState("rgb(71, 70, 70)");
 
     useEffect(() => {
@@ -17,14 +17,14 @@ export default function Header({ auth }) {
             <nav>
                 <ul className="navbar">
                     <li><Link to="/">Търсене</Link></li>
-                    {auth && <>
+                    {token && <>
                         <li><Link to="/hotel-add">Добави хотел</Link></li>
                         <li><Link to="/user-profile">Профил</Link></li>
                         <li><Link to="/messages-input">Съобщения</Link></li>
                         <li><Link to="/logout">Изход</Link></li></>
                     }
 
-                    {!auth && <>
+                    {!token && <>
                         <li><Link to="/login">Вход</Link></li>
                         <li><Link to="/register">Регистрация</Link></li></>}
 

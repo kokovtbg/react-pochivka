@@ -9,27 +9,32 @@ import Hotel from './components/hotel/Hotel';
 import Home from './components/Home';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
+import Message from './components/messages/Message';
 
 function App() {
-    const [auth, setAuth] = useState('');
+    const [token, setToken] = useState('');
+    const [username, setUsername] = useState('');
 
-    const onLoginHandler = (token) => {
-        setAuth(token);
+    const onLoginHandler = (token, username) => {
+        setToken(token);
+        setUsername(username);
     }
 
-    const onLogoutHandler = (auth) => {
-        setAuth(auth);
+    const onLogoutHandler = (token, username) => {
+        setToken(token);
+        setUsername(username);
     }
 
     return (
         <div className="App">
-            <Header auth={auth} />
+            <Header token={token} />
 
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/hotels/:hotelId' element={<Hotel />} />
+                <Route path='/hotels/:hotelId' element={<Hotel username={username} />} />
                 <Route path='/login' element={<Login onLoginHandler={onLoginHandler} />}/>
-                <Route path='logout' element={<Logout onLogoutHandler={onLogoutHandler} />} />
+                <Route path='/logout' element={<Logout onLogoutHandler={onLogoutHandler} />} />
+                <Route path='/send-message/:username' element={<Message token={token} senderUsername={username}/>} />
             </Routes>
 
 

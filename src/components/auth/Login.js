@@ -21,8 +21,7 @@ export default function Login({ onLoginHandler }) {
         const data = new FormData(e.target);
         const obj = Object.fromEntries(data);
         loginUser(obj).then(res => {
-            sessionStorage.setItem('token', res.token);
-            onLoginHandler(res.token);
+            onLoginHandler(res.token, res.username);
         });
         navigate("/");
     }

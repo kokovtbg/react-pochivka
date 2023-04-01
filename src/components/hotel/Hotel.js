@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { findById } from "../../services/hotelService";
 import { renderTowns, renderCategory, renderTitleAccommodation, renderLabelComfort } from "../renderFunctions";
 
 import style from "./Hotel.Module.css";
 
-export default function Hotel() {
+export default function Hotel({ username }) {
     const { hotelId } = useParams();
     const [hotel, setHotel] = useState({});
     const [fetchReady, setFetchReady] = useState(false);
@@ -48,6 +48,11 @@ export default function Hotel() {
                     <div>
                         <h2>{hotel.owner.telephone}</h2>
                         <h2>{hotel.owner.email}</h2>
+                        {username === hotel.owner.username &&
+                            <><button>Edit</button><button>Delete</button></>
+                        }
+                        {username && username !== hotel.owner.username &&
+                            <Link className="link" to={`/send-message/${hotel.owner.username}`} >Send Message</Link>}
                     </div>
 
                 </div>
