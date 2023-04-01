@@ -21,3 +21,15 @@ export async function getTown() {
     const data = await response.json();
     return data;
 }
+
+export async function getRoom() {
+    const response = await fetch("http://localhost:8080/room");
+    const data = await response.json();
+    return data;
+}
+
+export async function getSeason() {
+    const response = await fetch("http://localhost:8080/season");
+    const data = await response.json();
+    return data;
+}

@@ -1,9 +1,7 @@
 const baseUrl = 'http://localhost:8080';
 
 export async function sendMessage(token, body) {
-    const path = '/send-message'; 
-    console.log(token);
-    console.log(body);
+    const path = '/send-message';
     const res = await fetch(baseUrl + path, {
         method: 'post',
         headers: {

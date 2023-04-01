@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import Message from './components/messages/Message';
+import HotelAdd from './components/hotel/HotelAdd';
 
 function App() {
     const [token, setToken] = useState('');
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/login' element={<Login onLoginHandler={onLoginHandler} />}/>
                 <Route path='/logout' element={<Logout onLogoutHandler={onLogoutHandler} />} />
                 <Route path='/send-message/:username' element={<Message token={token} senderUsername={username}/>} />
+                <Route path='/hotel-add' element={<HotelAdd />} />
             </Routes>
 
 

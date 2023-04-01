@@ -95,23 +95,6 @@ export function renderTowns(param) {
     }
 }
 
-export function renderLabelCategory(param) {
-    switch (param) {
-        case 'ONE_STAR':
-            return "1";
-        case 'TWO_STAR':
-            return "2";
-        case 'THREE_STAR':
-            return "3";
-        case 'FOUR_STAR':
-            return "4";
-        case 'FIVE_STAR':
-            return "5";
-        default:
-            return 'Something went wrong';
-    }
-}
-
 export function renderLabelComfort(param) {
     switch (param) {
         case 'POOL':
@@ -151,6 +134,23 @@ export function renderLabelComfort(param) {
     }
 }
 
+export function renderLabelCategory(param) {
+    switch (param) {
+        case 'ONE_STAR':
+            return "1";
+        case 'TWO_STAR':
+            return "2";
+        case 'THREE_STAR':
+            return "3";
+        case 'FOUR_STAR':
+            return "4";
+        case 'FIVE_STAR':
+            return "5";
+        default:
+            return 'Something went wrong';
+    }
+}
+
 export function renderCategory(category) {
     switch (category) {
         case 'ONE_STAR':
@@ -185,5 +185,39 @@ export function renderCategory(category) {
             </div>;
         default:
             return "Something went wrong";
+    }
+}
+
+export function renderCategoryForAddHotel(category) {
+    switch (category) {
+        case 'ONE_STAR':
+            return "1 звезда";
+        case 'TWO_STAR':
+            return "2 звезди";
+        case 'THREE_STAR':
+            return "3 звезди";
+        case 'FOUR_STAR':
+            return "4 звезди";
+        case 'FIVE_STAR':
+            return "5 звезди";
+        default:
+            return "Something went wrong";
+    }
+}
+
+export function renderRoom(room) {
+    switch (room) {
+        case 'SINGLE':
+            return "единична";
+        case 'DOUBLE':
+            return "двойна";
+        case 'TRIPLE':
+            return "тройна";
+        case 'QUAD':
+            return "четворна";
+        case 'APARTMENT':
+            return "апартамент";
+        default:
+            return 'Something went wrong';
     }
 }
