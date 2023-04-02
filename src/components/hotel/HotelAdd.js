@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { getAccommodation, getCategory, getComfort, getRoom, getSeason, getTown } from "../../services/enumService";
+import { registerHotel } from "../../services/hotelService";
 import { renderCategoryForAddHotel, renderTitleAccommodation, renderLabelComfort, renderRoom, renderSeason, renderTowns } from "../renderFunctions";
 
 import stylesHotel from './Hotel.Module.css'
 
-export default function HotelAdd() {
+export default function HotelAdd({ username, token }) {
+    const navigate = useNavigate();
+
     const [name, setName] = useState('');
     const [town, setTown] = useState('');
     const [website, setWebsite] = useState('');
@@ -117,8 +121,26 @@ export default function HotelAdd() {
         setShowCurrRooms(!showCurrRooms);
     }
 
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        const data = {
+            name: name,
+            town: town,
+            website: website,
+            information: information,
+            category: category,
+            accommodation: accommodation,
+            images: images,
+            comforts: comfortsChoosen,
+            rooms: rooms
+        } 
+        registerHotel(username, token, data);
+
+        navigate('/');
+    }
+
     return (
-        <form>
+        <form onSubmit={onSubmitHandler}>
             <div>
                 <label htmlFor="name">Наименование</label>
                 <input type="text" id="name" name="name"
@@ -201,8 +223,9 @@ export default function HotelAdd() {
                 <button className="btn-hotel" type="button" onClick={showRooms}>Виж/Скрий текущи стаи</button>
             </div>
 
-            {showCurrRooms && <ul>{rooms.map((r, i) => <li key={i}>{renderRoom(r.roomType)}---{renderSeason(r.season)}---{r.price}</li>)}</ul>}
-            
+            {showCurrRooms && <ul>{rooms.map((r, i) =>
+                <li key={i}>{renderRoom(r.roomType)}---{renderSeason(r.season)}---{r.price}---</li>)}</ul>}
+
             <button className="btn-add-hotel btn-hotel">Регистрирай Хотел</button>
         </form>
     )

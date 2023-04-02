@@ -36,7 +36,7 @@ function App() {
                 <Route path='/login' element={<Login onLoginHandler={onLoginHandler} />}/>
                 <Route path='/logout' element={<Logout onLogoutHandler={onLogoutHandler} />} />
                 <Route path='/send-message/:username' element={<Message token={token} senderUsername={username}/>} />
-                <Route path='/hotel-add' element={<HotelAdd />} />
+                <Route path='/hotel-add' element={<HotelAdd username={username} token={token} />} />
             </Routes>
 
 
