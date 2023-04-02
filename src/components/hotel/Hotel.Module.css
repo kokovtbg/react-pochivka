@@ -48,3 +48,22 @@
 .rooms-comforts table tr {
     flex-basis: 25%;
 }
+
+.btn-hotel {
+    color: rgb(39, 38, 38);
+    background-color: aquamarine;
+    padding: 8px 32px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.btn-hotel:hover {
+    background-color: rgb(39, 38, 38);
+    color: aquamarine;
+}
+
+.btn-add-hotel {
+    font-size: 24px;
+}

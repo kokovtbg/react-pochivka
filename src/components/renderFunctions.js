@@ -221,3 +221,20 @@ export function renderRoom(room) {
             return 'Something went wrong';
     }
 }
+
+export function renderSeason(season) {
+    switch (season) {
+        case 'STRONG_SUMMER':
+            return "силен летен";
+        case 'STRONG_WINTER':
+            return "силен зимен";
+        case 'WEAK_SUMMER':
+            return "слаб летен";
+        case 'WEAK_WINTER':
+             return "слаб зимен";
+        case 'OTHER':
+            return "друг"    
+        default:
+            return 'Something went wrong';
+    }
+}
