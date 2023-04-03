@@ -49,10 +49,10 @@ export default function Hotel({ username }) {
                         <h2>{hotel.owner.telephone}</h2>
                         <h2>{hotel.owner.email}</h2>
                         {username === hotel.owner.username &&
-                            <><button>Edit</button><button>Delete</button></>
+                            <><Link to={`/hotel-update/${hotel.id}`} >Редактране</Link><button>Delete</button></>
                         }
                         {username && username !== hotel.owner.username &&
-                            <Link className="link" to={`/send-message/${hotel.owner.username}`} >Send Message</Link>}
+                            <Link className="link" to={`/send-message/${hotel.owner.username}`} >Изпрати съобщение</Link>}
                     </div>
 
                 </div>
