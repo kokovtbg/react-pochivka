@@ -26,7 +26,6 @@ export default function HotelUpdate({ token }) {
     const [priceOption, setPriceOption] = useState(false);
     const [price, setPrice] = useState(0);
 
-    const [existingRoom, setExistingRoom] = useState(false);
     const [roomRegistered, setRoomRegistered] = useState(false);
     const [showCurrRooms, setShowCurrRooms] = useState(false);
 
@@ -96,35 +95,34 @@ export default function HotelUpdate({ token }) {
         setSeasonOption(true);
         setRoomType(e.target.value);
         setRoomRegistered(false);
-        setExistingRoom(false);
     }
 
     const onSeasonChange = (e) => {
         setSeason(e.target.value);
         setPriceOption(true);
         setRoomRegistered(false);
-        setExistingRoom(false);
     }
 
     const onPriceChange = (e) => {
         setPrice(Number(e.target.value));
     }
 
-    const createRoom = () => {
-        if (rooms.some(e => e.roomType === roomType && e.season === season)) {
-            setExistingRoom(true);
-            return;
-        }
-        setRooms(state => state.concat(Array.of({
-            roomType: roomType,
-            season: season,
-            price: price
-        })));
-        setSeasonOption(false);
-        setPriceOption(false);
-        setExistingRoom(false);
-        setRoomRegistered(true);
-    }
+    // const createRoom = () => {
+    //     setRooms(rooms.map(r => {
+    //         if ( r.roomType === roomType && r.season === season) {
+    //             return {
+    //                 ...r,
+    //                 price: price
+    //             }
+    //         } else {
+    //             return r;
+    //         }
+    //     }));
+        
+    //     setSeasonOption(false);
+    //     setPriceOption(false);
+    //     setRoomRegistered(true);
+    // }
 
     const showRooms = () => {
         setShowCurrRooms(!showCurrRooms);
@@ -140,8 +138,8 @@ export default function HotelUpdate({ token }) {
             category: category,
             accommodation: accommodation,
             images: images,
-            comforts: comfortsChoosen,
-            rooms: rooms
+            comforts: comfortsChoosen
+            // rooms: rooms.filter(r => r.price !== 0)
         }
         updateHotel(id, token, data);
 
@@ -207,7 +205,7 @@ export default function HotelUpdate({ token }) {
             </div>
 
             {/* rooms */}
-            <label htmlFor="room">Стаи</label>
+            {/* <label htmlFor="room">Стаи</label>
             <select name="room" id="room"
                 value={roomType} onChange={onRoomChange}>
                 <option value="noRoom">Стаи*</option>
@@ -226,16 +224,15 @@ export default function HotelUpdate({ token }) {
                     value={price} onChange={onPriceChange} />
                 <button className="btn-hotel" type="button" onClick={createRoom}>Избери стая</button>
             </>}
-            {existingRoom && <h2 style={{ color: 'red' }}>Стая от този тип и сезон съществува</h2>}
             {roomRegistered && <h2>Стая регистрирана</h2>}
             <div>
                 <button className="btn-hotel" type="button" onClick={showRooms}>Виж/Скрий текущи стаи</button>
             </div>
 
             {showCurrRooms && <ul>{rooms.map((r, i) =>
-                <li key={i}>{renderRoom(r.roomType)}---{renderSeason(r.season)}---{r.price}---</li>)}</ul>}
+                <li key={i}>{renderRoom(r.roomType)}---{renderSeason(r.season)}---{r.price}---</li>)}</ul>} */}
 
-            <button className="btn-add-hotel btn-hotel">Регистрирай Хотел</button>
+            <button className="btn-add-hotel btn-hotel">Промени Хотел</button>
         </form>
     )
 }
