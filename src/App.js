@@ -12,6 +12,7 @@ import Logout from './components/auth/Logout';
 import Message from './components/messages/Message';
 import HotelAdd from './components/hotel/HotelAdd';
 import HotelUpdate from './components/hotel/HotelUpdate';
+import Register from './components/auth/Register';
 
 function App() {
     const [token, setToken] = useState('');
@@ -39,6 +40,7 @@ function App() {
                 <Route path='/send-message/:username' element={<Message token={token} senderUsername={username}/>} />
                 <Route path='/hotel-add' element={<HotelAdd username={username} token={token} />} />
                 <Route path='/hotel-update/:id' element={<HotelUpdate token={token} />} ></Route>
+                <Route path='/register' element={<Register />} />
             </Routes>
 
 
