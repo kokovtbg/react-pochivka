@@ -107,22 +107,22 @@ export default function HotelUpdate({ token }) {
         setPrice(Number(e.target.value));
     }
 
-    // const createRoom = () => {
-    //     setRooms(rooms.map(r => {
-    //         if ( r.roomType === roomType && r.season === season) {
-    //             return {
-    //                 ...r,
-    //                 price: price
-    //             }
-    //         } else {
-    //             return r;
-    //         }
-    //     }));
+    const createRoom = () => {
+        setRooms(rooms.map(r => {
+            if ( r.roomType === roomType && r.season === season) {
+                return {
+                    ...r,
+                    price: price
+                }
+            } else {
+                return r;
+            }
+        }));
         
-    //     setSeasonOption(false);
-    //     setPriceOption(false);
-    //     setRoomRegistered(true);
-    // }
+        setSeasonOption(false);
+        setPriceOption(false);
+        setRoomRegistered(true);
+    }
 
     const showRooms = () => {
         setShowCurrRooms(!showCurrRooms);
@@ -138,8 +138,8 @@ export default function HotelUpdate({ token }) {
             category: category,
             accommodation: accommodation,
             images: images,
-            comforts: comfortsChoosen
-            // rooms: rooms.filter(r => r.price !== 0)
+            comforts: comfortsChoosen,
+            rooms: rooms.filter(r => r.price !== 0)
         }
         updateHotel(id, token, data);
 
@@ -205,7 +205,7 @@ export default function HotelUpdate({ token }) {
             </div>
 
             {/* rooms */}
-            {/* <label htmlFor="room">Стаи</label>
+            <label htmlFor="room">Стаи</label>
             <select name="room" id="room"
                 value={roomType} onChange={onRoomChange}>
                 <option value="noRoom">Стаи*</option>
@@ -230,7 +230,7 @@ export default function HotelUpdate({ token }) {
             </div>
 
             {showCurrRooms && <ul>{rooms.map((r, i) =>
-                <li key={i}>{renderRoom(r.roomType)}---{renderSeason(r.season)}---{r.price}---</li>)}</ul>} */}
+                <li key={i}>{renderRoom(r.roomType)}---{renderSeason(r.season)}---{r.price}---</li>)}</ul>}
 
             <button className="btn-add-hotel btn-hotel">Промени Хотел</button>
         </form>
