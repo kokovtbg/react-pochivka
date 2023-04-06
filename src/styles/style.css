@@ -21,26 +21,6 @@ main form {
     flex-basis: 30%;
 }
 
-/* Messages */
-
-ul.messList {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    background-color: lightgray;
-}
-
-ul.messList li {
-    flex-basis: 100%;
-    color: black;
-    display: flex;
-}
-
-ul.messList li span {
-    flex-basis: 25%;
-}
-
 /* Navbar */
 
 .navbar-header {

@@ -3,7 +3,7 @@ import './App.css';
 import './styles/style.css';
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import MessagesInput from './components/MessagesInput';
+import MessagesInput from './components/messages/MessagesInput';
 import Header from './components/Header';
 import Hotel from './components/hotel/Hotel';
 import Home from './components/Home';
@@ -13,6 +13,7 @@ import Message from './components/messages/Message';
 import HotelAdd from './components/hotel/HotelAdd';
 import HotelUpdate from './components/hotel/HotelUpdate';
 import Register from './components/auth/Register';
+import MessageRead from './components/messages/MessageRead';
 
 function App() {
     const [token, setToken] = useState('');
@@ -41,10 +42,10 @@ function App() {
                 <Route path='/hotel-add' element={<HotelAdd username={username} token={token} />} />
                 <Route path='/hotel-update/:id' element={<HotelUpdate token={token} />} ></Route>
                 <Route path='/register' element={<Register />} />
+                <Route path='/messages-input' element={<MessagesInput token={token} username={username} />}></Route>
+                <Route path='/message-read/:id' element={<MessageRead token={token} />} />
             </Routes>
 
-
-            {/* <MessagesInput /> */}
         </div>
 
     );
