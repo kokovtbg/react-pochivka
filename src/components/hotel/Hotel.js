@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { findById } from "../../services/hotelService";
+import { deleteHotel, findById } from "../../services/hotelService";
 import { renderTowns, renderCategory, renderTitleAccommodation, renderLabelComfort } from "../renderFunctions";
 
 import style from "./Hotel.Module.css";
 
-export default function Hotel({ username }) {
+export default function Hotel({ username, token }) {
     const { hotelId } = useParams();
+    
     const [hotel, setHotel] = useState({});
     const [fetchReady, setFetchReady] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         findById(hotelId).then(h => {
@@ -17,6 +20,11 @@ export default function Hotel({ username }) {
             setFetchReady(true);
         });
     }, [hotelId]);
+
+    const onDelete = () => {
+        deleteHotel(hotel.id, token);
+        navigate('/');
+    }
 
 
     if (fetchReady) {
@@ -49,7 +57,7 @@ export default function Hotel({ username }) {
                         <h2>{hotel.owner.telephone}</h2>
                         <h2>{hotel.owner.email}</h2>
                         {username === hotel.owner.username &&
-                            <><Link to={`/hotel-update/${hotel.id}`} >Редактране</Link><button>Delete</button></>
+                            <><Link to={`/hotel-update/${hotel.id}`} >Редактране</Link><button onClick={onDelete}>Delete</button></>
                         }
                         {username && username !== hotel.owner.username &&
                             <Link className="link" to={`/send-message/${hotel.owner.username}`} >Изпрати съобщение</Link>}

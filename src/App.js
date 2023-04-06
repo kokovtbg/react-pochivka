@@ -34,7 +34,7 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/hotels/:hotelId' element={<Hotel username={username} />} />
+                <Route path='/hotels/:hotelId' element={<Hotel username={username} token={token} />} />
                 <Route path='/login' element={<Login onLoginHandler={onLoginHandler} />}/>
                 <Route path='/logout' element={<Logout onLogoutHandler={onLogoutHandler} />} />
                 <Route path='/send-message/:username' element={<Message token={token} senderUsername={username}/>} />

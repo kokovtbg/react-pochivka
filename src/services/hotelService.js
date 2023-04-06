@@ -63,3 +63,18 @@ export async function updateHotel(id, token, obj) {
     const data = await res.json();
     return data;
 }
+
+export async function deleteHotel(id, token) {
+    const res = await fetch(`http://localhost:8080/hotel-delete/${id}`, {
+        method: 'delete',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'content-type': 'application/json'
+        }
+    });
+    if (!res.ok) {
+        return "Something went wrong" + res.status;
+    }
+    const data = await res.json();
+    return data;
+}
