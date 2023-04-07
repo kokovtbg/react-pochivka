@@ -14,6 +14,7 @@ import HotelAdd from './components/hotel/HotelAdd';
 import HotelUpdate from './components/hotel/HotelUpdate';
 import Register from './components/auth/Register';
 import MessageRead from './components/messages/MessageRead';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
     const [token, setToken] = useState('');
@@ -44,6 +45,7 @@ function App() {
                 <Route path='/register' element={<Register />} />
                 <Route path='/messages-input' element={<MessagesInput token={token} username={username} />}></Route>
                 <Route path='/message-read/:id' element={<MessageRead token={token} />} />
+                <Route path='*' element={<ErrorPage />} />
             </Routes>
 
         </div>
