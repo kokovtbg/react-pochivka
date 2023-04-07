@@ -45,9 +45,6 @@ export default function HotelAdd({ username, token }) {
         getSeason().then(data => setSeasonList(data));
         getTown().then(data => setTownList(data));
     }, []);
-    useEffect(() => {
-        console.log(rooms);
-    }, [rooms]);
 
     const onNameChange = (e) => {
         setName(e.target.value);
