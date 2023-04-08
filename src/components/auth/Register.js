@@ -116,6 +116,13 @@ export default function Register() {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
+
+        if (invalidUsername || invalidEmail || invalidPassword ||
+            invalidConfPassword || invalidFirstName || invalidLastName ||
+            invalidPhone) {
+            return;
+        }
+
         const data = {
             username: username,
             email: email,
@@ -176,13 +183,13 @@ export default function Register() {
             </div>
             <button className="btn-auth">Регистрация</button>
 
-            {invalidUsername && <h3 style={{color: 'red'}}>Невалидно потребителско име</h3>}
-            {invalidEmail && <h3 style={{color: 'red'}}>Невалидна електронна поща</h3>}
-            {invalidPassword && <h3 style={{color: 'red'}}>Невалидна парола</h3>}
-            {invalidConfPassword && <h3 style={{color: 'red'}}>Невалидно повторение парола</h3>}
-            {invalidFirstName && <h3 style={{color: 'red'}}>Невалидно собствено име</h3>}
-            {invalidLastName && <h3 style={{color: 'red'}}>Невалидна фамилия</h3>}
-            {invalidPhone && <h3 style={{color: 'red'}}>Невалиден телефон</h3>}
+            {invalidUsername && <h3 style={{ color: 'red' }}>Невалидно потребителско име</h3>}
+            {invalidEmail && <h3 style={{ color: 'red' }}>Невалидна електронна поща</h3>}
+            {invalidPassword && <h3 style={{ color: 'red' }}>Невалидна парола</h3>}
+            {invalidConfPassword && <h3 style={{ color: 'red' }}>Невалидно повторение парола</h3>}
+            {invalidFirstName && <h3 style={{ color: 'red' }}>Невалидно собствено име</h3>}
+            {invalidLastName && <h3 style={{ color: 'red' }}>Невалидна фамилия</h3>}
+            {invalidPhone && <h3 style={{ color: 'red' }}>Невалиден телефон</h3>}
         </form>
     )
 }
